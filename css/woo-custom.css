@@ -1,0 +1,47 @@
+.slider-1 {
+    height: 380px;
+    overflow: hidden;
+}
+
+.slider-1 img {
+    height: auto;
+    object-fit: scale-down;
+}
+
+.more-link {
+    color: rgb(192, 191, 191) !important
+}
+
+.view-product {
+    border: 1px solid black;
+}
+
+.slider-overlay:before {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider-3 * {
+    position: relative;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
