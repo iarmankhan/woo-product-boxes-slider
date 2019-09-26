@@ -24,8 +24,10 @@ function woo_product_caption_slider($attr)
                     $title = get_the_title();
                     ?>
                     <li class="uk-width-3-4">
-                        <div class="uk-panel slider-1 noselect">
-                            <img src="<?php echo $image[0]; ?>" alt="<?php echo $title; ?>">
+                        <div class="uk-panel uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light slider-1 noselect"
+                             data-src="<?php echo $image[0]; ?>" uk-img>
+                            <!-- <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light slider-3 slider-overlay noselect"
+                             data-src="<?php echo $image[0]; ?>" uk-img> -->
                             <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
                                 <h3 class="uk-margin-remove"><?php echo $title; ?></h3>
                                 <a class="uk-button uk-button-default uk-margin" href="<?php echo get_permalink(); ?>">View

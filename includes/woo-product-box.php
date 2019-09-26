@@ -18,6 +18,7 @@ function woo_product_box($attr)
         if ($loop->have_posts()) {
             $cnt = 0;
             while ($loop->have_posts()) : $loop->the_post();
+                $product = wc_get_product();
                 $image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'post-thumbnail');
                 if ($n == $cnt) {
                     echo '</div><div class="uk-grid-small uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>';
@@ -32,8 +33,10 @@ function woo_product_box($attr)
                     </a>
                     <div class="uk-card uk-card-default uk-card-body"><h3><?php echo get_the_title(); ?></h3>
                         <p><?php echo wp_trim_words(get_the_content(), 20, '...'); ?></p>
+                        <span class="uk-button uk-button-primary"
+                              style="pointer-events: none"><?php echo $product->get_price_html(); ?></span>
                         <a class="uk-button uk-button-default"
-                           href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="' . $post->ID . '"]');
+                           href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="' . get_the_ID() . '"]');
                            echo $add_to_cart; ?>" class="more">Buy now</a></div>
                 </div>
                 <?php

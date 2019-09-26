@@ -14,7 +14,7 @@ function woo_product_slider($attr)
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
          uk-slider="autoplay: <?php echo $autoplay; ?>; autoplay-interval: <?php echo $interval; ?>">
 
-        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-<?php echo $n; ?> slider-3">
+        <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-<?php echo $n; ?>@m slider-3">
             <?php
             $args = array(
                 'post_type' => 'product',

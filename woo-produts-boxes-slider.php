@@ -54,7 +54,6 @@ if (!class_exists('WOO_BOXES_SLIDER')) {
         }
 
 
-
         function woo_enqueue_scripts_styles()
         {
             wp_enqueue_style('uikit-css', plugins_url('css/uikit.min.css', __FILE__));

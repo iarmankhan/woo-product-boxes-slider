@@ -5,13 +5,13 @@ if (!defined('ABSPATH'))
 function woo_product_filter_boxes($attr)
 {
     ob_start();
-    if(!empty($attr['attributes'])){
+    if (!empty($attr['attributes'])) {
         $terms = get_terms('pa_' . $attr['attributes']);
     }
     $count = (!empty($attr['count'])) ? $attr['count'] : 5;
     ?>
     <div uk-filter="target: .js-filter">
-        <?php   if(!empty($terms)):   ?>
+        <?php if (!empty($terms)): ?>
             <ul class="uk-subnav uk-subnav-pill">
                 <li class="uk-active" uk-filter-control><a href="#">All</a></li>
                 <?php foreach ($terms as $k => $t) {
@@ -20,9 +20,9 @@ function woo_product_filter_boxes($attr)
                                 href="#"><?php echo $t->name; ?></a></li>
                 <?php } ?>
             </ul>
-        <?php   endif; ?>
+        <?php endif; ?>
 
-        <ul class="js-filter uk-child-width-1-2 uk-child-width-1-3@m uk-text-center" uk-grid>
+        <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid>
             <?php
             $args = array(
                 'post_type' => 'product',
@@ -32,6 +32,7 @@ function woo_product_filter_boxes($attr)
             if ($loop->have_posts()) {
                 $cnt = 0;
                 while ($loop->have_posts()) : $loop->the_post();
+                    $product = wc_get_product();
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'post-thumbnail');
                     $terms = get_the_terms(get_the_ID(), 'pa_color');
                     if (!empty($terms)) {
@@ -47,9 +48,13 @@ function woo_product_filter_boxes($attr)
                             </div>
                         </a>
                         <div class="uk-card uk-card-default uk-card-body"><h3><?php echo get_the_title(); ?></h3>
-                            <a class="uk-button uk-button-default"
-                               href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="' . $post->ID . '"]');
-                               echo $add_to_cart; ?>" class="more">Buy now</a></div>
+                            <div class="uk-flex uk-flex-column">
+                                <span class="uk-label uk-padding-small uk-margin"><?php echo $product->get_price_html(); ?></span>
+                                <a class="uk-button uk-button-default"
+                                   href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="' . get_the_ID() . '"]');
+                                   echo $add_to_cart; ?>" class="more">Buy now</a></div>
+                        </div>
+
                     </li>
                     <?php
                     $cnt++;

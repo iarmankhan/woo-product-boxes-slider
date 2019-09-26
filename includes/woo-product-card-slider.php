@@ -22,6 +22,7 @@ function woo_product_card_slider($attr)
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) {
                     while ($loop->have_posts()) : $loop->the_post();
+                        $product = wc_get_product();
                         $image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
                         $title = get_the_title();
                         ?>
@@ -35,6 +36,8 @@ function woo_product_card_slider($attr)
                                     <p><?php echo get_the_excerpt(); ?></p>
                                     <a class="uk-button view-product uk-button-secondary uk-margin-remove"
                                        href="<?php echo get_permalink(); ?>">View Product</a>
+                                    <span class="uk-label"
+                                          style="pointer-events: none"><?php echo $product->get_price_html(); ?></span>
                                 </div>
                             </div>
                         </li>
