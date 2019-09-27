@@ -36,7 +36,7 @@ function woo_product_card_slider($attr)
                                     <p><?php echo get_the_excerpt(); ?></p>
                                     <a class="uk-button view-product uk-button-secondary uk-margin-remove"
                                        href="<?php echo get_permalink(); ?>">View Product</a>
-                                    <span class="uk-label"
+                                    <span class="uk-label card-slider-price"
                                           style="pointer-events: none"><?php echo $product->get_price_html(); ?></span>
                                 </div>
                             </div>

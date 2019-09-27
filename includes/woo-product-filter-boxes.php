@@ -12,7 +12,7 @@ function woo_product_filter_boxes($attr)
     ?>
     <div uk-filter="target: .js-filter">
         <?php if (!empty($terms)): ?>
-            <ul class="uk-subnav uk-subnav-pill">
+            <ul class="uk-subnav uk-subnav-pill uk-margin">
                 <li class="uk-active" uk-filter-control><a href="#">All</a></li>
                 <?php foreach ($terms as $k => $t) {
                     //$class = ( $k==0 ) ? 'uk-active' : ''; ?>

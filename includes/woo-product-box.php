@@ -33,7 +33,7 @@ function woo_product_box($attr)
                     </a>
                     <div class="uk-card uk-card-default uk-card-body"><h3><?php echo get_the_title(); ?></h3>
                         <p><?php echo wp_trim_words(get_the_content(), 20, '...'); ?></p>
-                        <span class="uk-button uk-button-primary"
+                        <span class="uk-button uk-button-primary uk-margin"
                               style="pointer-events: none"><?php echo $product->get_price_html(); ?></span>
                         <a class="uk-button uk-button-default"
                            href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="' . get_the_ID() . '"]');

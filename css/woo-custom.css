@@ -45,3 +45,11 @@
     /* Internet Explorer/Edge */
     user-select: none;
 }
+
+.uk-card ins {
+    background: transparent;
+    color: #fff;
+}
+.card-slider-price ins{
+    color: black !important;
+}
